@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "368d9737-5ab1-4813-8f1d-f1cd91713349",
+		"name": "PokemonTester",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29901619"
+	},
+	"item": [
+		{
+			"name": "getPokemonId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9091/pokemonterster/v1/api/pokemon/getPokemon?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"pokemonterster",
+						"v1",
+						"api",
+						"pokemon",
+						"getPokemon"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPokemonName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9091/pokemonterster/v1/api/pokemon/getPokemon?name=charmander",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"pokemonterster",
+						"v1",
+						"api",
+						"pokemon",
+						"getPokemon"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "charmander"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

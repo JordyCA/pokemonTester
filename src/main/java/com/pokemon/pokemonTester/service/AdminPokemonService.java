@@ -1,4 +1,4 @@
-package com.pokemon.pokemonTester.Service;
+package com.pokemon.pokemonTester.service;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -6,9 +6,9 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import com.google.gson.Gson;
-import com.pokemon.pokemonTester.Model.ResponseAdminPokemonModel.PokemonDetailModel;
-import com.pokemon.pokemonTester.Model.ResponseAdminPokemonModel.ResponsePokemonDetailModel;
-import com.pokemon.pokemonTester.Utils.Constant;
+import com.pokemon.pokemonTester.dto.AdminPokemonResponseDto.PokemonDetailModel;
+import com.pokemon.pokemonTester.dto.AdminPokemonResponseDto.ResponsePokemonDetailModel;
+import com.pokemon.pokemonTester.util.Constant;
 
 @Service
 public class AdminPokemonService {

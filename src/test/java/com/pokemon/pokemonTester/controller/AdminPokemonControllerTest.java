@@ -1,4 +1,4 @@
-package com.pokemon.pokemonTester.Controller;
+package com.pokemon.pokemonTester.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -21,8 +21,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.HttpClientErrorException;
 
 import com.google.gson.Gson;
-import com.pokemon.pokemonTester.Model.ResponseAdminPokemonModel.PokemonDetailModel;
-import com.pokemon.pokemonTester.Service.AdminPokemonService;
+import com.pokemon.pokemonTester.dto.AdminPokemonResponseDto.PokemonDetailModel;
+import com.pokemon.pokemonTester.service.AdminPokemonService;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)

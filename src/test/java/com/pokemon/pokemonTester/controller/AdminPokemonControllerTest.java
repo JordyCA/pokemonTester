@@ -5,8 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
+import java.awt.*;
 import java.util.stream.Stream;
 
+import com.pokemon.pokemonTester.dto.GeneralResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,12 +19,13 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.HttpClientErrorException;
 
 import com.google.gson.Gson;
 import com.pokemon.pokemonTester.dto.AdminPokemonResponseDto.PokemonDetailModel;
-import com.pokemon.pokemonTester.service.AdminPokemonService;
+import com.pokemon.pokemonTester.service.adminPokemon.AdminPokemonService;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -42,9 +45,10 @@ public class AdminPokemonControllerTest {
 		PokemonDetailModel responseService = new Gson().fromJson(jsonResponseService, PokemonDetailModel.class);
 		when(adminPokemonService.getPokemon(any(), any())).thenReturn(responseService);
 
-		ResponseEntity<String> response = controller.getPokemon(name, id);
-		PokemonDetailModel reponseTem = new Gson().fromJson(response.getBody(), PokemonDetailModel.class);
-		assertTrue(reponseTem.getName().equals("pikachu"));
+		ResponseEntity<GeneralResponse> response = controller.getPokemon(name, id);
+		PokemonDetailModel responseBody = (PokemonDetailModel) response.getBody().getResponse();
+//		PokemonDetailModel reponseTem = new Gson().fromJson(response.getBody(), PokemonDetailModel.class);
+		assertTrue(responseBody.getName().equals("pikachu"));
 	}
 
 	@Test
@@ -86,9 +90,10 @@ public class AdminPokemonControllerTest {
 		PokemonDetailModel responseService = new Gson().fromJson(jsonResponseService, PokemonDetailModel.class);
 		when(adminPokemonService.getPokemon(any(), any())).thenReturn(responseService);
 
-		ResponseEntity<String> response = controller.getPokemon(name, id);
-
-		assertTrue(response.getStatusCode().toString().equals("200 OK"));
+		ResponseEntity<GeneralResponse> response = controller.getPokemon(name, id);
+		System.out.println(response.getBody().getCode());
+//		PokemonDetailModel responseBody = (PokemonDetailModel) response.getBody().getResponse();
+	    assertTrue(response.getBody().getCode().equals(String.valueOf(HttpStatus.OK.value())));
 	}
 
 }

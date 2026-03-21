@@ -1,4 +1,4 @@
-package com.pokemon.pokemonTester.service;
+package com.pokemon.pokemonTester.service.adminPokemon;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

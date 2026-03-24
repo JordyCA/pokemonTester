@@ -5,10 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-import java.awt.*;
 import java.util.stream.Stream;
 
-import com.pokemon.pokemonTester.dto.GeneralResponse;
+import com.pokemon.pokemonTester.dto.GeneralResponseDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -45,7 +44,7 @@ public class AdminPokemonControllerTest {
         PokemonDetailModel responseService = new Gson().fromJson(jsonResponseService, PokemonDetailModel.class);
         when(adminPokemonService.getPokemon(any(), any())).thenReturn(responseService);
 
-        ResponseEntity<GeneralResponse> response = controller.getPokemon(name, id);
+        ResponseEntity<GeneralResponseDto> response = controller.getPokemon(name, id);
         PokemonDetailModel responseBody = (PokemonDetailModel) response.getBody().getResponse();
 //		PokemonDetailModel reponseTem = new Gson().fromJson(response.getBody(), PokemonDetailModel.class);
         assertTrue(responseBody.getName().equals("pikachu"));
@@ -90,7 +89,7 @@ public class AdminPokemonControllerTest {
         PokemonDetailModel responseService = new Gson().fromJson(jsonResponseService, PokemonDetailModel.class);
         when(adminPokemonService.getPokemon(any(), any())).thenReturn(responseService);
 
-        ResponseEntity<GeneralResponse> response = controller.getPokemon(name, id);
+        ResponseEntity<GeneralResponseDto> response = controller.getPokemon(name, id);
 //		PokemonDetailModel responseBody = (PokemonDetailModel) response.getBody().getResponse();
         assertTrue(response.getBody().getCode().equals(String.valueOf(HttpStatus.OK.value())));
     }

@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @Getter
 @Setter
-public class GeneralResponse implements Serializable {
+public class GeneralResponseDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Getter
@@ -24,7 +24,7 @@ public class GeneralResponse implements Serializable {
     @Setter
     private Object response;
 
-    public GeneralResponse(
+    public GeneralResponseDto(
             HttpStatus httpCode,
             Object response,
             String message,
